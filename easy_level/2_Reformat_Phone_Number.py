@@ -16,28 +16,30 @@ def create_proper_number(number: str):
     result = ''
     while len_number > 0:
         if len_number == 2:
-            result += number[:2]
             len_number -= 2
+            result += number[:2]
             continue
         elif len_number == 3:
-            result += number[:3]
             len_number -= 3
+            result += number[:3]
             continue
         elif len_number == 4:
-            result += number[:2] + '-' + number[2:]
             len_number -= 4
+            result += number[:2] + '-' + number[2:]
             continue
         elif len_number == 5:
-            pass
+            len_number -= 5
+            result += number[:3] + '-' + number[3:]
+            continue
         else:
+            len_number -= 3
             result += number[:3] + '-'
             number = number[3:]
-            len_number -= 3
             continue
     return result
 
 
-print(create_proper_number('123 4-567'))
+print(create_proper_number('123 4-5678'))
 
 
 
